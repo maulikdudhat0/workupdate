@@ -1,0 +1,39 @@
+
+<div Class="bgbox">
+    <h1>The background-color Property</h1>
+    
+    <p>The background color can be specified with a color name.</p>
+</div>
+    
+    <style>
+    .bgbox {
+        background-color: "{{section.settings.background_color}}";
+        height: 200px;
+      }
+    </style>
+
+    {% schema %}
+      {
+        "name": "BG color",
+        "settings": [
+    {
+           "type": "color",
+           "id": "background_color",
+           "label": "Background color",
+           "default": "#ffffff"
+        }
+    ],
+        "presets": [
+      {
+          "name": "BG Color"
+        }
+    ]
+      }
+    {% endschema %}
+    
+    {% stylesheet %}
+    {% endstylesheet %}
+    
+    {% javascript %}
+    {% endjavascript %}
+    

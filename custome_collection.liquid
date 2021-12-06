@@ -1,0 +1,20 @@
+{% for product in collections[section.settings.feature_collection].products %}
+            <div class="col-md-4">
+                  <div class="featured-products-box">
+                      <label>SALE </label>
+                      <div class="featured-products-img">
+                        <a href="{{product.url}}">   <img src="{{ product.featured_image | img_url: '1024x' }}" alt=""></a>
+                      </div>
+                      <div class="featured-products-content">
+                          <span>{{ product.vendor }}</span>
+                          <p>{{ product.title }}</p>
+                          <div class="price-box">
+                            {% if product.price < product.compare_at_price %}
+                              <div class="off-price">{{ product.compare_at_price | money }}</div>
+                            {% endif %}
+                            <div class="regula-price">{{ product.price | money }}</div>
+                           </div>
+                      </div>
+                  </div>
+              </div>
+          		{% endfor %}

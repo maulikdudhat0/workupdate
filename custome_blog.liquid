@@ -1,0 +1,18 @@
+{% for article in blogs[section.settings.blog].articles %}
+		<div class="row">
+           <div class="card">
+              <a href="{{article.url}}"><h2>{{article.title}}</h2></a>
+             {%- if section.settings.blog_show_date -%}
+             	<h5>{{ article.published_at | time_tag: '%a, %b %d, %Y' }}</h5>
+              {%- endif -%}
+             {%- if section.settings.blog_show_author -%}
+      <span>
+        By {{ article.author }}
+      </span>
+    {%- endif -%}
+              <a href="{{article.url}}"><div class="fakeimg" style="height:200px;"><img src="{{ article.image | img_url:'master' }}" alt=""></div></a>
+              <a href="{{article.url}}"><p style="text-align:justify;">{{ article.content | truncatewords: 30 }}</p></a>
+              	<div class="-button"><a class="readmore-style-btn3" href="{{ article.url}}">{{section.settings.button_label}}</a></div>
+    		</div>
+		</div>
+	{% endfor %}

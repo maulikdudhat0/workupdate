@@ -1,0 +1,62 @@
+<h2 style="text-align:center">Slideshow Gallery</h2>
+
+<div class="container">
+  {% for block in section.blocks%}
+  <div class="mySlides">
+    <div class="numbertext">1 / 6</div>
+    <img src="{{block.settings.image_1 | img_url:'master'}}" style="width:100%">
+  </div>
+	{%endfor%}
+  
+    
+  <a class="prev" onclick="plusSlides(-1)">❮</a>
+  <a class="next" onclick="plusSlides(1)">❯</a>
+
+  <div class="caption-container">
+    <p id="caption"></p>
+  </div>
+
+  <div class="row">
+    {% for block in section.blocks%}
+    <div class="column">
+      <img class="demo cursor" src="{{block.settings.image_1 | img_url:'master'}}" style="width:100%" onclick="currentSlide(1)" alt="The Woods">
+    </div>
+    {%endfor%}
+
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "NewSlider",
+    "settings": [],
+"blocks":[
+{
+	"type":"gallery",
+	"name":"image",
+	"settings":[
+		{			
+			"type": "image_picker",
+			"id": "image_1",
+			"label": "Image"  
+    	}
+
+]
+
+}
+],
+"presets": [
+  {  
+      "name": "newslider",
+      "category": "Text"
+    }
+]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
+

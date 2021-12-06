@@ -1,0 +1,63 @@
+
+
+<h2>{{section.settings.imgh}}</h2>
+<p>"{{section.settings.imgp}}</p>
+
+<div class="row">
+  
+  {% for block in section.blocks%}
+  <div class="column">
+    <img src="{{block.settings.image_1 | img_url:'master'}}" alt="Snow" style="width:100%">
+  </div>
+  {%endfor%}
+</div>
+
+
+
+{% schema %}
+  {
+    "name": "gallery",
+    "settings": [
+          {
+			"type":"text",
+			"id":"imgh",
+			"label":"Image Heading",
+			"default":"Enter here"
+		},
+		{
+			"type":"text",
+			"id":"imgp",
+			"label":"Image Content",
+			"default":"Enter here"
+		}
+				
+],
+"blocks":[
+{
+	"type":"gallery",
+	"name":"image",
+	"settings":[
+		{			
+			"type": "image_picker",
+			"id": "image_1",
+			"label": "Image"  
+    	}
+
+]
+
+}
+],
+"presets": [
+  {
+      "name": "custome gallery"
+    }
+]
+  }
+
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

@@ -1,0 +1,45 @@
+<div class="team-section">
+    <div class="conrainer">
+      <div class="row">
+         {%- for collection in collections -%}
+                <div class="col-md-4 team-box">
+                  <div class="team-inner">
+                    {%- if collection.image -%}
+                    {%- assign collection_image = collection.image -%}
+                    {%- elsif collection.products.first and collection.products.first.images != empty -%}
+                    {%- assign collection_image = collection.products.first.featured_image -%}
+                    {%- else -%}
+                    {%- assign collection_image = blank -%}
+                    {%- endif -%}
+                    <a href="{{ collection.url}}"> <img src="{{ collection_image | img_url: 'master' }}" alt="Team 1"></a>
+                    <h2><a href="{{ collection.url }}">{{ collection.title }}</a></h2>
+                  </div>
+              </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+
+  
+  {% schema %}
+    {
+      "name": "collection",
+      "settings": [
+      ],
+      "presets":[
+      {
+          "name":"Collection-without-option",
+          "category":"collection"
+      }
+      ]
+    }
+  {% endschema %}
+  
+  {% stylesheet %}
+  {% endstylesheet %}
+  
+  {% javascript %}
+  {% endjavascript %}
+  
+  
